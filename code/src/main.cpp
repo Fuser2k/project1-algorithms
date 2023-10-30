@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
     CSorting *sort = new CSorting({1, 7, 8, 3, 4, 2, 5, 6});
     // auto vec = sort->Insertion();
-    auto vec = sort->Quick();
+    auto vec = sort->Radix();
 
     for (auto it : vec)
     {
