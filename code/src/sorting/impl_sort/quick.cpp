@@ -1,17 +1,25 @@
 #include "../sorting.hpp"
 #include <algorithm>
 #include <functional>
+#include <chrono>
 
 int QuickSort_Partition_Internal(std::vector<int> &sorted, int low, int high);
 void QuickSort_Internal(std::vector<int> &sorted, int low, int high);
 
 CResult *CSorting::Quick()
 {
+    auto start = std::chrono::high_resolution_clock::now();
+
     std::vector<int> sorted = m_numbers;
 
     QuickSort_Internal(sorted, 0, sorted.size() - 1);
 
-    auto res = new CResult(sorted, "Quick Sort");
+    auto end = std::chrono::high_resolution_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+
+
+    auto res = new CResult(sorted, m_runTests, duration.count(), "Quick Sort");
     return res;
 }
 

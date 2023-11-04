@@ -1,7 +1,11 @@
 #include "../sorting.hpp"
 #include <algorithm>
-CResult* CSorting::Insertion()
+#include <chrono>
+CResult *CSorting::Insertion()
 {
+
+    auto start = std::chrono::high_resolution_clock::now();
+
     std::vector<int> sorted = m_numbers;
 
     for (int i = 1; i < sorted.size(); i++)
@@ -14,6 +18,12 @@ CResult* CSorting::Insertion()
             prev_idx--;
         }
     }
-    auto res = new CResult(sorted, "Insertion Sort");
+
+    auto end = std::chrono::high_resolution_clock::now();
+
+
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+
+    auto res = new CResult(sorted, m_runTests, duration.count(), "Insertion Sort");
     return res;
 }

@@ -1,7 +1,11 @@
 #include "../sorting.hpp"
 #include <algorithm>
-CResult* CSorting::Radix()
+#include <chrono>
+
+CResult *CSorting::Radix()
 {
+    auto start = std::chrono::high_resolution_clock::now();
+
     std::vector<int> sorted = m_numbers;
 
     int largest_element = *std::max_element(std::begin(sorted), std::end(sorted));
@@ -17,6 +21,10 @@ CResult* CSorting::Radix()
 
         std::sort(sorted.begin(), sorted.end(), compare_digits);
     }
-    auto res = new CResult(sorted, "Radix Sort");
+    auto end = std::chrono::high_resolution_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+
+    auto res = new CResult(sorted, m_runTests, duration.count(), "Radix Sort");
     return res;
 }

@@ -1,25 +1,38 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 class CResult
 {
 public:
-    CResult(std::vector<int> nums, std::string name = "Unknown Algorithm")
+    CResult(std::vector<int> nums, bool btest = false, long duration = 0, std::string name = "Unknown Algorithm")
     {
         m_numbers = nums;
+        m_test = btest;
         m_algorithm = name;
+        m_duration = duration;
     }
 
-    CResult *Print(bool details = false) // pass true to include algorithm name
+    CResult *Print()
     {
-        if (details)
+
+        if (m_test)
+        {
             std::cout << m_algorithm << ": ";
+            const bool success = std::is_sorted(m_numbers.cbegin(), m_numbers.cend());
+            std::cout << ((success) ? "SUCCESS\n" : "FAILED\n");
+        }
+
         for (auto it : m_numbers)
             std::cout << it << " ";
 
         std::cout << "\n";
 
+        if (m_test)
+        {
+            std::cout << "Time taken: " << m_duration << " nanosec\n";
+        }
         return this;
     };
 
@@ -31,6 +44,8 @@ public:
 private:
     std::vector<int> m_numbers;
     std::string m_algorithm;
+    bool m_test = false;
+    long m_duration = 0;
 };
 
 enum EAlgorithmType
@@ -57,7 +72,7 @@ public:
 
     CSorting *WithTest()
     {
-        throw("TODO: not implemented yet");
+        m_runTests = true;
         return this;
     }
 
@@ -86,4 +101,5 @@ public:
 private:
     std::vector<int> m_numbers;
     EAlgorithmType m_type;
+    bool m_runTests = false;
 };
