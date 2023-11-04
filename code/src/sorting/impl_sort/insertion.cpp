@@ -1,6 +1,6 @@
 #include "../sorting.hpp"
 #include <algorithm>
-std::vector<int> CSorting::Insertion()
+CResult* CSorting::Insertion()
 {
     std::vector<int> sorted = m_numbers;
 
@@ -14,5 +14,6 @@ std::vector<int> CSorting::Insertion()
             prev_idx--;
         }
     }
-    return sorted;
+    auto res = new CResult(sorted, "Insertion Sort");
+    return res;
 }

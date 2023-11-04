@@ -21,15 +21,25 @@ Description:
 // Forward declerations
 void gen_heap(std::vector<int> &heap, int root);
 
-std::vector<int> CSorting::Heap()
+CResult* CSorting::Heap()
 {
     std::vector<int> heap = m_numbers;
+
     for (int i = heap.size() / 2 - 1; i >= 0; i--)
     {
         gen_heap(heap, i);
     }
-    
-    //throw("TODO: not implemented yet");
+
+    // Now we are using heap for every element to sort.
+    for (int i = heap.size() - 1; i > 0; i--)
+    {
+        std::swap(heap.at(0), heap.at(i)); // swap root with the last element
+
+        gen_heap(heap, 0); // doing it again with the new root
+    }
+
+    auto res = new CResult(heap, "Heap Sort");
+    return res;
 }
 
 void gen_heap(std::vector<int> &heap, int root)

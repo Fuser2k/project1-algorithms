@@ -1,29 +1,21 @@
+/*
+Algorithms and Complexity, University of Lodz
+Olcay Duzgun
+*/
+
 #include <iostream>
 #include <format>
 #include "sorting/sorting.hpp"
-#include <algorithm> // for heap
+#include <algorithm>
 
-struct Heap
-{
-    int val;
-    Heap *parent;
-    Heap *prev;
-    Heap *left;
-    Heap *right;
-};
-
-
-
-int main(int argc, char **argv)
+int main(/*int argc, char **argv*/)
 {
     CSorting *sort = new CSorting({1, 7, 8, 3, 4, 2, 5, 6});
-    auto vec = sort->Heap();
 
-    for (auto it : vec)
-    {
-        std::cout << it << " ";
-    }
-    std::cout << "\n";
+    auto InsertionTest = sort->SetType(SORT_INSERTION)->Run()->Print(true);
+    auto QuickTest = sort->SetType(SORT_QUICK)->Run()->Print(true);
 
+    free(InsertionTest);
+    free(QuickTest);
     return 0;
 }

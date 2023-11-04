@@ -1,6 +1,6 @@
 #include "../sorting.hpp"
 #include <algorithm>
-std::vector<int> CSorting::Radix()
+CResult* CSorting::Radix()
 {
     std::vector<int> sorted = m_numbers;
 
@@ -17,6 +17,6 @@ std::vector<int> CSorting::Radix()
 
         std::sort(sorted.begin(), sorted.end(), compare_digits);
     }
-
-    return sorted;
+    auto res = new CResult(sorted, "Radix Sort");
+    return res;
 }
