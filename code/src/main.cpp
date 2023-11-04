@@ -17,5 +17,7 @@ int main(/*int argc, char **argv*/)
 
     free(InsertionTest);
     free(QuickTest);
+
+    free(sort);
     return 0;
 }
