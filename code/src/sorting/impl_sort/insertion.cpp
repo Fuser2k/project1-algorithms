@@ -1,6 +1,18 @@
 #include "../sorting.hpp"
 #include <algorithm>
 #include <chrono>
+
+/*
+Complexity: O(pow(n, 2))
+
+Description:
+[
+   First we start from second element of array (we count it as key) and compare with previous element.
+   If previous element is greater than key, we swap them.
+   We continue doing this for every element (excluding first one).
+]
+*/
+
 CResult *CSorting::Insertion()
 {
 
@@ -20,8 +32,7 @@ CResult *CSorting::Insertion()
     }
 
     auto end = std::chrono::high_resolution_clock::now();
-
-
+    
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 
     auto res = new CResult(sorted, m_runTests, duration.count(), "Insertion Sort");
