@@ -1,6 +1,16 @@
 #include "../sorting.hpp"
 #include <algorithm>
 #include <chrono>
+/*
+Complexity: O(MAX_NUMBER_OF_DIGITS * (n + SIZE_OF_NUMBER))
+
+NOTE: SIZE_OF_NUMBER is 4 bytes
+
+Description:
+[
+   @TODO: will be added
+]
+*/
 
 CResult *CSorting::Radix()
 {

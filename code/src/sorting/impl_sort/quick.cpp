@@ -3,6 +3,16 @@
 #include <functional>
 #include <chrono>
 
+/*
+Complexity: O(nlog n)
+
+Description:
+[
+   @TODO: will be added
+]
+*/
+
+// Forward declerations
 int QuickSort_Partition_Internal(std::vector<int> &sorted, int low, int high);
 void QuickSort_Internal(std::vector<int> &sorted, int low, int high);
 
