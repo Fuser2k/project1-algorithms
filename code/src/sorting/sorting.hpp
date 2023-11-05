@@ -21,7 +21,7 @@ public:
         {
             std::cout << m_algorithm << ": ";
             const bool success = std::is_sorted(m_numbers.cbegin(), m_numbers.cend());
-            std::cout << ((success) ? "SUCCESS\n" : "FAILED\n");
+            std::cout << ((success) ? "\033[1;32mSUCCESS\033[0m\n" : "\033[1;31mFAILED\033[0m\n");
         }
 
         for (auto it : m_numbers)
