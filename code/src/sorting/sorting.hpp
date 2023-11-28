@@ -53,7 +53,8 @@ enum EAlgorithmType
     SORT_INSERTION,
     SORT_QUICK,
     SORT_RADIX,
-    SORT_HEAP
+    SORT_HEAP,
+    SORT_HYBRID
 };
 
 class CSorting
@@ -80,6 +81,7 @@ public:
     CResult *Quick();
     CResult *Radix();
     CResult *Heap();
+    CResult *Hybrid();
 
     CResult *Run()
     {
@@ -93,6 +95,8 @@ public:
             return Radix();
         case SORT_HEAP:
             return Heap();
+        case SORT_HYBRID:
+            return Hybrid();
         default:
             throw("Invalid Type");
         }
