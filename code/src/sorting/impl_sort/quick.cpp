@@ -8,7 +8,7 @@ Complexity: O(nlog n)
 
 Description:
 [
-   @TODO: will be added
+   We are picking a pivot element from our array. We are using partitioning algorithm in order to divide them into two sub arrays. Then we recursively compare other elements with pivot and replace elements through it. This is how we basically implement quick sorting algorithm.
 ]
 */
 
@@ -27,7 +27,6 @@ CResult *CSorting::Quick()
     auto end = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-
 
     auto res = new CResult(sorted, m_runTests, duration.count(), "Quick Sort");
     return res;

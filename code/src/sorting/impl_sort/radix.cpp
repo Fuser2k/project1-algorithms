@@ -8,7 +8,10 @@ NOTE: SIZE_OF_NUMBER is 4 bytes
 
 Description:
 [
-   @TODO: will be added
+   The algorithm is straight-forward to understand.
+    We are sorting the numbers by checking their digits. Let's say we have an array that contains 14, 62, 733, 610.
+    We sorting from their first digits, 610, 62, 733, 14
+    Then we are applying same logic for second digit and so on.
 ]
 */
 
