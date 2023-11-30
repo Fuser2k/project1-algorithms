@@ -14,7 +14,7 @@ Description:
 
 CResult *CSorting::Radix()
 {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
 
     std::vector<int> sorted = m_numbers;
 
@@ -31,7 +31,7 @@ CResult *CSorting::Radix()
 
         std::sort(sorted.begin(), sorted.end(), compare_digits);
     }
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 

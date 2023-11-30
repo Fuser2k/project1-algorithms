@@ -23,7 +23,7 @@ void gen_heap(std::vector<int> &heap, int maxval, int root);
 
 CResult *CSorting::Heap()
 {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
 
     std::vector<int> heap = m_numbers;
 
@@ -39,7 +39,7 @@ CResult *CSorting::Heap()
 
         gen_heap(heap, i, 0); // doing it again with the new root
     }
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::steady_clock::now();
 
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 

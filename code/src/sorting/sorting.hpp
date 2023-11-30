@@ -23,15 +23,16 @@ public:
             const bool success = std::is_sorted(m_numbers.cbegin(), m_numbers.cend());
             std::cout << ((success) ? "\033[1;32mSUCCESS\033[0m\n" : "\033[1;31mFAILED\033[0m\n");
         }
-
+#if 0
         for (auto it : m_numbers)
             std::cout << it << " ";
-
         std::cout << "\n";
+#endif
+
 
         if (m_test)
         {
-            std::cout << "Time taken: " << m_duration << " nanosec\n";
+            std::cout << "Time taken: " << m_duration << " nanosec\n\n";
         }
         return this;
     };
@@ -39,6 +40,11 @@ public:
     std::vector<int> &GetNumbers()
     {
         return m_numbers;
+    }
+
+    int GetDuration()
+    {
+        return m_duration;
     }
 
 private:

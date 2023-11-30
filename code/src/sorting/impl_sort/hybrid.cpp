@@ -20,7 +20,7 @@ CResult *CSorting::Hybrid()
 {
     if (m_numbers.size() <= 12)
     {
-        auto start = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::steady_clock::now();
 
         std::vector<int> sorted = m_numbers;
 
@@ -35,7 +35,7 @@ CResult *CSorting::Hybrid()
             }
         }
 
-        auto end = std::chrono::high_resolution_clock::now();
+        auto end = std::chrono::steady_clock::now();
 
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 
@@ -44,13 +44,13 @@ CResult *CSorting::Hybrid()
     }
     else
     {
-        auto start = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::steady_clock::now();
 
         std::vector<int> sorted = m_numbers;
 
         QuickSort_Internal(sorted, 0, sorted.size() - 1);
 
-        auto end = std::chrono::high_resolution_clock::now();
+        auto end = std::chrono::steady_clock::now();
 
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 
